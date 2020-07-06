@@ -10,6 +10,8 @@ const flash = require('connect-flash');
 const session = require('express-session');
 
 
+var md5 = require('md5');
+
 
 
 router.get('/', (req, res) => {
@@ -26,26 +28,33 @@ router.get('/', (req, res) => {
 // })
 
 router.get('/show', (req, res) => {
-    var marvelUrl = `developer.marvel.com:443/v1/public/characters?name=${req.query.name}&apikey=${process.env.API_KEY}`
-    axios.get(marvelUrl).then(function(apiResponse) {
-         var hero = apiResponse;
-        res.render('hero/show', {hero})
+    function hash(ts, pk, key) {
+        console.log("HASH")
+        return md5(ts+pk+key);
+    }
+    let TS = 1;
+    let PK = process.env.API_KEY;
+    let KEY = process.env.HASH;
+    let hashed = hash(TS, PK, KEY);
+    let apiCall = `https://gateway.marvel.com:443/v1/public/characters?name=${req.query.name}&apikey=${KEY}&ts=${TS}&hash=${hashed}`
+    console.log(apiCall)
+    axios.get(apiCall).then(function(apiResponse) {
+        var hero = toJSON(apiResponse.data);
+        res.render('hero/show', {hero: hero})
     }).catch(function(error) {
         console.log(error)
     })
 })
 
-router.post('/:name', (req, res) => {
-    db.create
-})
+// router.post('/:name', (req, res) => {
+//     db.create
+// })
 
 
-router.get('/team', (req, res) => {
-    findAll
-    res.render('hero/team')
-})
-
-
+// router.get('/team', (req, res) => {
+//     findAll
+//     res.render('hero/team')
+// })
 
 
 
