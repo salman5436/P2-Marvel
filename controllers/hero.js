@@ -25,8 +25,8 @@ router.get('/', (req, res) => {
 //     })
 // })
 
-router.get('/:name', (req, res) => {
-    var marvelUrl = `https://gateway.marvel.com:443/v1/public/characters?name=${req.params.name}&apikey=${process.env.API_KEY}`
+router.get('/show', (req, res) => {
+    var marvelUrl = `developer.marvel.com:443/v1/public/characters?name=${req.query.name}&apikey=${process.env.API_KEY}`
     axios.get(marvelUrl).then(function(apiResponse) {
          var hero = apiResponse;
         res.render('hero/show', {hero})
@@ -44,8 +44,6 @@ router.get('/team', (req, res) => {
     findAll
     res.render('hero/team')
 })
-
-router
 
 
 
