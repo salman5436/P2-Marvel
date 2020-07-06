@@ -33,13 +33,13 @@ router.get('/show', (req, res) => {
         return md5(ts+pk+key);
     }
     let TS = 1;
-    let PK = process.env.API_KEY;
-    let KEY = process.env.HASH;
+    let PK = process.env.HASH;
+    let KEY = process.env.API_KEY;
     let hashed = hash(TS, PK, KEY);
     let apiCall = `https://gateway.marvel.com:443/v1/public/characters?name=${req.query.name}&apikey=${KEY}&ts=${TS}&hash=${hashed}`
     console.log(apiCall)
     axios.get(apiCall).then(function(apiResponse) {
-        var hero = toJSON(apiResponse.data);
+        var hero = apiResponse.data;
         res.render('hero/show', {hero: hero})
     }).catch(function(error) {
         console.log(error)
