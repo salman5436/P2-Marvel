@@ -89,6 +89,8 @@ app.get('/profile', isLoggedIn, function(req, res) {
 
 // include auth controller
 app.use('/auth', require('./controllers/auth'));
+// include hero controller
+app.use('/hero', require('./controllers/hero'));
 
 // initialize App on Port
 app.listen(process.env.PORT || 3000, function() {
