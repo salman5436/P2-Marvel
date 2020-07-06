@@ -1,0 +1,21 @@
+team
+-------
+name: string,
+description: text,
+image: integer,
+userId: integer(fk)
+
+villain
+-------
+name: string,
+description: text,
+image: integer,
+userId: integer(fk)
+
+
+sequelize model:create --name team --attributes name:string,description:text,userId:integer
+sequelize db:migrate
+
+
+sequelize model:create --name villain --attributes name:string,description:text,userId:integer
+sequelize db:migrate

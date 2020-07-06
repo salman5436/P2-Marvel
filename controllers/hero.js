@@ -28,12 +28,24 @@ router.get('/', (req, res) => {
 router.get('/:name', (req, res) => {
     var marvelUrl = `https://gateway.marvel.com:443/v1/public/characters?name=${req.params.name}&apikey=${process.env.API_KEY}`
     axios.get(marvelUrl).then(function(apiResponse) {
-         var hero = apiResponse.data;
+         var hero = apiResponse;
         res.render('hero/show', {hero})
     }).catch(function(error) {
         console.log(error)
     })
 })
+
+router.post('/:name', (req, res) => {
+    db.create
+})
+
+
+router.get('/team', (req, res) => {
+    findAll
+    res.render('hero/team')
+})
+
+router
 
 
 
