@@ -48,8 +48,8 @@ router.get('/show', (req, res) => {
 
 router.get('/show', (req, res) => {
     db.team.findAll()
-    .then(function(hero) {
-        res.render("hero/show", {team: hero})
+    .then(function(team) {
+        res.render("hero/show", {team: team})
     })
     .catch(function(error) {
         console.log(error);

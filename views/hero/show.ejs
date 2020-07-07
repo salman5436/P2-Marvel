@@ -5,3 +5,11 @@
 <img src="<%= hero.data.results[0].thumbnail.path %>.jpg">
 
 <p> <%= hero.data.results[0].description %></p>
+
+
+<% if (team.id <= 5) { %>
+    <p>Click here to add this superhero to your team</p>
+    <form method="POST" method="hero/team">
+        <input type="submit">
+    </form>
+<% } %>
