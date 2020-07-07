@@ -51,6 +51,16 @@ router.get('/show', (req, res) => {
     })
 })
 
+router.get('/team', (req, res) => {
+    db.team.findAll()
+    .then(function(team) {
+        res.render('hero/team', {team: team})
+    })
+    .catch(function(error) {
+        console.log('💩💩💩💩💩💩💩💩💩💩');
+        console.log(error);
+    })
+})
 
 router.post('/team', (req, res) => {
     db.team.create({
@@ -68,11 +78,7 @@ router.post('/team', (req, res) => {
 })
 
 
-// router.get('/team', (req, res) => {
-//     db.team.findAll(){
-//     res.render('hero/team')
-//     }
-// })
+
 
 // router
 // if ()

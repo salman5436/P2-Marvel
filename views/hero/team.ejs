@@ -1,9 +1,13 @@
 <h2> Welcome to Your Team!</h2>
-<h3> Avengers Assemble and fight for the world!</h3>
+<h2> Avengers Assemble and fight for the world!</h3>
 
 
 <div id="team-img">
-
+    <% team.forEach((hero) => { %>
+        <h4> <%= hero.name %> </h3>
+        <img src="<%= hero.image %>.jpg">
+        <p> <%= hero.description %> </p>
+    <% }) %>
 </div>
 
 <div id="upload">
