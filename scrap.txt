@@ -2,14 +2,14 @@ team
 -------
 name: string,
 description: text,
-image: integer,
+image: string,
 userId: integer(fk)
 
 villain
 -------
 name: string,
 description: text,
-image: integer,
+image: string,
 userId: integer(fk)
 
 
@@ -21,11 +21,11 @@ heroPoints: integer,
 villainPoints: integer
 
 
-sequelize model:create --name team --attributes name:string,description:text,userId:integer
+sequelize model:create --name team --attributes name:string,,description:text,image:string,userId:integer
 sequelize db:migrate
 
 
-sequelize model:create --name villain --attributes name:string,description:text,userId:integer
+sequelize model:create --name villain --attributes name:string,description:text,image:string,userId:integer
 sequelize db:migrate
 
 
