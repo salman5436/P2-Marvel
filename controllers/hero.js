@@ -42,7 +42,8 @@ router.get('/show', (req, res) => {
         var hero = apiResponse.data;
         db.team.findAll()
         .then(function(team) {
-            console.log(team);
+            console.log('🅱️🅱️🅱️🅱️🅱️🅱️🅱️')
+            console.log(user);
             res.render('hero/show', {hero: hero, team: team})
         })
         }).catch(function(error) {
@@ -52,9 +53,20 @@ router.get('/show', (req, res) => {
 
 
 
-router.post('/:name', (req, res) => {
-    db.create
-})
+// router.post('/team', (req, res) => {
+//     db.team.create({
+//         name: hero.data.results[0].name,
+//         description: hero.data.results[0].description,
+//         image: hero.data.results[0].thumbnail.path,
+//         userId: 234234,
+//     }).then(function(teamup) {
+//         console.log()
+//         res.redirect('/hero/team')
+//     }).catch(function(error) {
+//         console.log('💩💩💩💩💩💩💩💩💩💩');
+//         console.log(error);
+//       })
+// })
 
 
 // router.get('/team', (req, res) => {

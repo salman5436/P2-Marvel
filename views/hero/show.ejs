@@ -11,6 +11,9 @@
 <% if (team.length < 5) { %>
     <p>Click here to add this superhero to your team</p>
     <form method="POST" method="hero/team">
+        <input name="name" type="hidden" value="<%= hero.data.results[0].name %>">
+        <input name="description" type="hidden" value="<%= hero.data.results[0].description %>">
+        <input name="image" type="hidden" value="<%= hero.data.results[0].thumbnail.path %>">
         <input type="submit">
     </form>
 <% } %>
