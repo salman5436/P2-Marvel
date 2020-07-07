@@ -40,26 +40,21 @@ router.get('/show', (req, res) => {
     console.log(apiCall)
     axios.get(apiCall).then(function(apiResponse) {
         var hero = apiResponse.data;
-        res.render('hero/show', {hero: hero})
-    }).catch(function(error) {
+        db.team.findAll()
+        .then(function(team) {
+            console.log(team);
+            res.render('hero/show', {hero: hero, team: team})
+        })
+        }).catch(function(error) {
         console.log(error)
     })
 })
 
-router.get('/show', (req, res) => {
-    db.team.findAll()
-    .then(function(team) {
-        res.render("hero/show", {team: team})
-    })
-    .catch(function(error) {
-        console.log(error);
-    })
+
+
+router.post('/:name', (req, res) => {
+    db.create
 })
-
-
-// router.post('/:name', (req, res) => {
-//     db.create
-// })
 
 
 // router.get('/team', (req, res) => {
