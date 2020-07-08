@@ -77,10 +77,27 @@ router.post('/team', (req, res) => {
       })
 })
 
-// router.get('/villain', (req, res) => {
-
-
-// })
+router.get('/villain', (req, res) => {
+    function hash(ts, pk, key) {
+        console.log("HASH")
+        return md5(ts+pk+key);
+    }
+    let TS = 1;
+    let PK = process.env.HASH;
+    let KEY = process.env.API_KEY;
+    let hashed = hash(TS, PK, KEY);
+    let apiCall = `https://gateway.marvel.com:443/v1/public/characters?name=${req.query.name}&apikey=${KEY}&ts=${TS}&hash=${hashed}`
+    console.log(apiCall)
+    axios.get(apiCall).then(function(apiResponse) {
+        var villain = apiResponse.data;
+        db.team.create()
+        .then(function(villain) {
+            res.render('hero/villain', {villain: villain})
+        })
+        }).catch(function(error) {
+        console.log(error)
+    })
+})
 
 
 // router
