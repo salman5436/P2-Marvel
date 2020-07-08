@@ -77,28 +77,36 @@ router.post('/team', (req, res) => {
       })
 })
 
-router.get('/villain', (req, res) => {
-    function hash(ts, pk, key) {
-        console.log("HASH")
-        return md5(ts+pk+key);
-    }
-    let TS = 1;
-    let PK = process.env.HASH;
-    let KEY = process.env.API_KEY;
-    let hashed = hash(TS, PK, KEY);
-    let apiCall = `https://gateway.marvel.com:443/v1/public/characters?name=${req.query.name}&apikey=${KEY}&ts=${TS}&hash=${hashed}`
-    console.log(apiCall)
-    axios.get(apiCall).then(function(apiResponse) {
-        var villain = apiResponse.data;
-        db.team.create()
-        .then(function(villain) {
-            res.render('hero/villain', {villain: villain})
-        })
-        }).catch(function(error) {
-        console.log(error)
+// router.get('/villain', (req, res) => {
+//     function hash(ts, pk, key) {
+//         console.log("HASH")
+//         return md5(ts+pk+key);
+//     }
+//     let TS = 1;
+//     let PK = process.env.HASH;
+//     let KEY = process.env.API_KEY;
+//     let hashed = hash(TS, PK, KEY);
+//     let villains = ["thanos", "ultron", "magneto", "apocalypse", "red skull", "dormammu", "galactus"];
+//     let results = {one: []};
+//     for (var i = 0; i < villains.length; i++) {
+//         let apiCall = `https://gateway.marvel.com:443/v1/public/characters?name=${i}&apikey=${KEY}&ts=${TS}&hash=${hashed}`
+//         axios.get(apiCall).then(function(apiResponse) {
+//             var villain = apiResponse.data;
+//             results.one.push(villain)
+//             res.render('hero/villain', {results: results})
+//         }).catch(function(error) {
+//         console.log(error)
+//     })
+//     }
+// })
+
+router.get("/villain", (req, res) => {
+    db.villain.findAll().then(function(pick) {
+        res.render("hero/villain", {villain: pick})
     })
 })
 
+router.post
 
 // router
 // if ()

@@ -9,6 +9,12 @@
     <h3> Who will be the threat that your Avengers Team will face?</h3>
     <h4> Choose a super villain that a good match against your team! Do you think they can defeat your team?</h4>
 
-    
+    <div id="villain-img">
+        <% villain.forEach((vill) => { %>
+            <h4> <%= vill.name %> </h3>
+            <img src="<%= vill.image %>.jpg">
+            <p> <%= vill.description %> </p>
+        <% }) %>
+    </div>
 </body>
 </html>
