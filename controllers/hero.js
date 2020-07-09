@@ -106,14 +106,28 @@ router.get("/villain", (req, res) => {
     })
 })
 
+//form on the fight page
 router.post('/fight', (req, res) => {
-    db.teamsVillains.create( {
-
+    db.teamsVillains.create({
+        villainId: req.body.villain,
+        teamId: req.user
+    }).then(function(data) {
+        res.redirect('hero/fight');
+    }).catch(function(error) {
+        console.log('💩💩💩💩💩💩💩💩💩💩');
+        console.log(error);
     })
     //grab villainId
     //grab userId
 })
 
+router.get('/fight', (req, res) => {
+    db.teamsVillains.findAll({ 
+        include: [db.team, db.villain]
+    }).then(function(data) {
+        res.render('hero/fight')
+    })
+})
 
 //create 2 put routes for DOM buttons
 router.put
