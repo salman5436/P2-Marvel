@@ -125,7 +125,7 @@ router.get('/fight', (req, res) => {
     db.teamsVillains.findAll({ 
         include: [db.team, db.villain]
     }).then(function(data) {
-        res.render('hero/fight')
+        res.render('hero/fight', {data: data})
     })
 })
 
