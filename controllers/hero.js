@@ -106,7 +106,17 @@ router.get("/villain", (req, res) => {
     })
 })
 
-router.post
+router.post('/fight', (req, res) => {
+    db.teamsVillains.create( {
+
+    })
+    //grab villainId
+    //grab userId
+})
+
+
+//create 2 put routes for DOM buttons
+router.put
 
 // router
 // if ()

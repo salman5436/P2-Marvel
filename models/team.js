@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   team.associate = function(models) {
     // associations can be defined here
     models.team.belongsTo(models.user)
-    models.team.BelongsToMany(models.villain, {through: 'teamsVillains'})
+    models.team.belongsToMany(models.villain, {through: 'teamsVillains'})
   };
   return team;
 };

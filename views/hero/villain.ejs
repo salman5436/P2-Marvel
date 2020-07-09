@@ -6,8 +6,22 @@
     <title>Villain</title>
 </head>
 <body>
+    <form method="POST" action="team/fight">
+        <select name="villain" size="3">
+            
+            villain.forEach()
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+          </select>
+    </form>
+
     <h3> Who will be the threat that your Avengers Team will face?</h3>
     <h4> Choose a super villain that a good match against your team! Do you think they can defeat your team?</h4>
+
+
+
 
     <div id="villain-img">
         <% villain.forEach((vill) => { %>
@@ -20,5 +34,7 @@
             </form>
         <% }) %>
     </div>
+
+
 </body>
 </html>
