@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     models.villain.belongsTo(models.user)
     models.villain.belongsToMany(models.team, {through: "teamsVillains"})
+    models.villain.belongsToMany(models.team, {through: "fight"})
   };
   return villain;
 };

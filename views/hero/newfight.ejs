@@ -7,6 +7,8 @@
 </head>
 <body>
     <p>Stuff Happens Here</p>
-    <%= fight.villain.name %>
+     <% data.forEach(function(display) { %>
+        <p> <%= display.heroPoints %> </p>
+   <% }) %> 
 </body>
 </html>

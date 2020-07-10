@@ -6,6 +6,7 @@
     <title>Villain</title>
 </head>
 <body>
+
     <form method="POST" action="/hero/fight">
         <select name="villain" id="villain" class="form-control" required>
             <% villain.forEach((vill) => { %>
@@ -15,13 +16,18 @@
           </select>
           <input type="submit" name="villainSubmit">
     </form>
-    <input type="button" name="heroBtn" value="Hero Team">
-    <input type="button" name="villainBtn" value="The Villain">
+    <div id="pointsBtn">
+        <input id="heroBtn"type="button" name="heroBtn" value="Hero Team">
+        <p>0</p>
+
+        <input id="villainBtn" type="button" name="villainBtn" value="The Villain">
+        <p>0</p>
+    </div>
+
+
 
     <h3> Who will be the threat that your Avengers Team will face?</h3>
     <h4> Choose a super villain that a good match against your team! Do you think they can defeat your team?</h4>
-
-
 
 
     <div id="villain-img">
@@ -37,7 +43,15 @@
         <% }) %>
     </div>
 
+
     <script>
+        var button = document.getElementById("pointsBtn");
+
+        button.addEventListener("click", points);
+        
+        function points(e) {
+            e.preventDefault();
+        }
 
     </script>
 </body>
