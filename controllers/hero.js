@@ -67,7 +67,8 @@ router.post('/team', (req, res) => {
         name: req.body.name,
         description: req.body.description,
         image: req.body.image,
-        userId: req.user
+        userId: req.user.id,
+        heroPoints: 0
     }).then(function(teamup) {
         console.log(teamup.get())
         res.redirect('/hero/team')
@@ -129,9 +130,8 @@ router.get('/newfight', (req, res) => {
 //form on the fight page
 router.post('/fight', (req, res) => {
     db.fight.create({
+        userId: req.user.id,
         villainId: req.body.villain,
-        heroPoints: 0,
-        villainPoints: 0
     }).then(function(data) {
         res.redirect('/hero/newfight');
     }).catch(function(error) {
