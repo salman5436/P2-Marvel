@@ -4,12 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
     image: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    heroPoints: DataTypes.INTEGER
   }, {});
   team.associate = function(models) {
     // associations can be defined here
     models.team.belongsTo(models.user)
-    models.team.belongsToMany(models.villain, {through: 'teamsVillains'})
     models.team.belongsToMany(models.villain, {through: 'fight'})
   };
   return team;

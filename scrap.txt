@@ -21,13 +21,13 @@ heroPoints: integer,
 villainPoints: integer
 
 
-sequelize model:create --name team --attributes name:string,,description:text,image:string,userId:integer
+sequelize model:create --name team --attributes name:string,,description:text,image:string,userId:integer,heroPoints:integer
 sequelize db:migrate
 
 
-sequelize model:create --name villain --attributes name:string,description:text,image:string,userId:integer
+sequelize model:create --name villain --attributes name:string,description:text,image:string,userId:integer,villainPoints:integer
 sequelize db:migrate
 
 
-sequelize model:create --name fight --attributes teamId:integer,villainId:integer,heroPoints:integer,villainPoints:integer
+sequelize model:create --name fight --attributes userId:integer,villainId:integer,heroId:integer
 sequelize db:migrate
