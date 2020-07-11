@@ -29,5 +29,5 @@ sequelize model:create --name villain --attributes name:string,description:text,
 sequelize db:migrate
 
 
-sequelize model:create --name fight --attributes userId:integer,villainId:integer,heroId:integer
+sequelize model:create --name fight --attributes userId:integer,villainId:integer,teamId:integer
 sequelize db:migrate
