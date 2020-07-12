@@ -16,12 +16,23 @@
           </select>
           <input type="submit" name="villainSubmit">
     </form>
-    <div id="pointsBtn">
-        <input id="heroBtn"type="button" name="heroBtn" value="Hero Team">
-        <p>0</p>
+    <% team.forEach((hero) => { %>
+        <p> <%= hero.name %> </p>
+    <% }) %>
 
-        <input id="villainBtn" type="button" name="villainBtn" value="The Villain">
-        <p>0</p>
+    <div id="pointsBtn">
+        <form method="POST" action="/hero/upvote">
+            <input id="heroBtn"type="button" name="heroBtn" value="Hero Team">
+            <% team.forEach((hero) => { %>
+                <%= hero.heroPoints %>
+            <% }) %> 
+        </form>
+        <form method="POST" action="/hero/downvote">
+            <input id="villainBtn" type="button" name="villainBtn" value="The Villain">
+            <% villain.forEach((vill) => { %>
+                <%= vill.villainPoints %>
+            <% }) %>
+        </form>
     </div>
 
 

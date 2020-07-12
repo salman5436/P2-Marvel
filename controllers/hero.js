@@ -102,19 +102,14 @@ router.post('/team', (req, res) => {
 // })
 
 
-router.get('/fight', (req, res) => {
-    db.fight.findAll({
-        include:[db.villain]
-    })
-    .then(function(data) {
-        res.render("hero/fight")
-    })
-})
-
 
 router.get("/villain", (req, res) => {
-    db.villain.findAll().then(function(pick) {
-        res.render("hero/villain", {villain: pick})
+    db.villain.findAll().
+    then(function(villainData) {
+        db.team.findAll().then(function(teamData) {
+            console.log(teamData)
+            res.render("hero/villain", {villain: villainData, team: teamData})
+        })
     })
 })
 
