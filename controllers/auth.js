@@ -9,6 +9,7 @@ const flash = require('connect-flash');
 // Linking the requiring passport to config file path
 const passport = require('../config/ppConfig')
 // ^ What pp config does is require passport and customize the strategy we will use with a specfic database to authenticate
+var methodOverride = require('method-override')
 
 
 // register get route

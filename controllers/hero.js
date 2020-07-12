@@ -8,6 +8,8 @@ const db = require('../models');
 const axios = require('axios');
 const flash = require('connect-flash');
 const session = require('express-session');
+var methodOverride = require('method-override')
+
 
 
 var md5 = require('md5');
@@ -101,7 +103,15 @@ router.post('/team', (req, res) => {
 //     }
 // })
 
-
+router.delete('/team/remove', (req, res) => {
+    db.team.destroy({
+        where: {
+            name: req.body.name
+        }
+    }).then(function() {
+        res.redirect('/team')
+    })
+})
 
 router.get("/villain", (req, res) => {
     db.villain.findAll().
@@ -113,34 +123,38 @@ router.get("/villain", (req, res) => {
     })
 })
 
-router.get('/newfight', (req, res) => {
-    db.fight.findAll( {
-    })
-    .then(function(data) {
-        console.log(data);
-        res.render("hero/newfight", {data})
-    })
+//create 2 put routes for DOM buttons
+router.put('/villain/upvote', (req, res) => {
+
 })
+
+// router.get('/newfight', (req, res) => {
+//     db.fight.findAll( {
+//     })
+//     .then(function(data) {
+//         console.log(data);
+//         res.render("hero/newfight", {data})
+//     })
+// })
 
 //form on the fight page
-router.post('/fight', (req, res) => {
-    db.fight.create({
-        userId: req.user.id,
-        villainId: req.body.villain,
-    }).then(function(data) {
-        res.redirect('/hero/newfight');
-    }).catch(function(error) {
-        console.log('💩💩💩💩💩💩💩💩💩💩');
-        console.log(error);
-    })
-    //grab villainId
-    //grab userId
-})
+// router.post('/fight', (req, res) => {
+//     db.fight.create({
+//         userId: req.user.id,
+//         villainId: req.body.villain,
+//     }).then(function(data) {
+//         res.redirect('/hero/newfight');
+//     }).catch(function(error) {
+//         console.log('💩💩💩💩💩💩💩💩💩💩');
+//         console.log(error);
+//     })
+//     //grab villainId
+//     //grab userId
+// })
 
 
 
-//create 2 put routes for DOM buttons
-router.put
+
 
 // router
 // if ()
