@@ -1,19 +1,28 @@
-<h3>Here is the superhero you searched for!</h3>
+<div class="showpg-head">
+    <h2>Here is the superhero you searched for!</h2>
+</div>
 
-<%= hero.data.results[0].name %>
+<div class="hero-info">
+    <div class="hero-name">
+        <%= hero.data.results[0].name %>
+    </div>
 
-<img src="<%= hero.data.results[0].thumbnail.path %>.jpg">
+    <div class="hero-img">
+        <img src="<%= hero.data.results[0].thumbnail.path %>.jpg">
+    </div>
+    <div class="hero-desc">
+        <p> <%= hero.data.results[0].description %></p>
+    </div>
+</div>
 
-<p> <%= hero.data.results[0].description %></p>
-
-
-<% console.log(team) %>
-<% if (team.length < 5) { %>
-    <p>Click here to add this superhero to your team</p>
-    <form method="POST" action="/hero/team">
-        <input name="name" type="hidden" value="<%= hero.data.results[0].name %>">
-        <input name="description" type="hidden" value="<%= hero.data.results[0].description %>">
-        <input name="image" type="hidden" value="<%= hero.data.results[0].thumbnail.path %>">
-        <input type="submit">
-    </form>
-<% } %>
+<div class="team-form">
+    <% if (team.length < 5) { %>   
+        <p>Click here to add this superhero to your team</p>
+        <form method="POST" action="/hero/team">
+            <input name="name" type="hidden" value="<%= hero.data.results[0].name %>">
+            <input name="description" type="hidden" value="<%= hero.data.results[0].description %>">
+            <input name="image" type="hidden" value="<%= hero.data.results[0].thumbnail.path %>">
+            <input class="btn btn-default navbar-btn" type="submit">
+        </form>
+    <% } %>
+</div>

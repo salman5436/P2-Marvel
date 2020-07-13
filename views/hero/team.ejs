@@ -1,8 +1,9 @@
-<h2> Welcome to Your Team!</h2>
-<h2> Avengers Assemble and fight for the world!</h3>
+<div class="team-head">
+    <h2> Welcome to Your Team!</h2>
+    <h2> Avengers Assemble and fight for the world!</h3>
+</div>
 
-
-<div id="team-img">
+<div class="team-img">
     <% team.forEach((hero) => { %>
         <h4> <%= hero.name %> </h3>
         <img src="<%= hero.image %>.jpg">
@@ -16,12 +17,12 @@
 </div>
 
 
-<div id="upload">
+<div class="upload">
     <p>The Avengers need a leader, only you can help them!</p>
     <p> <a href="/hero/upload">Create your own hero</a></p>
 </div>
 
-<div id="fight">
+<div class="fight">
     <p>Are you ready to face the greatest threat the world has ever faced?</p>
     <p> <a href="/hero/villain"> Click here to choose your villain!</a></p>    
     <h3>AVENGERS! LET'S FIGHT!</h3>

@@ -7,57 +7,58 @@
 </head>
 <body>
 
-    <form method="POST" action="/hero/fight">
-        <select name="villain" id="villain" class="form-control" required>
-            <% villain.forEach((vill) => { %>
-                <option value="<%= vill.id %>"><%= vill.name %></option>
-                <h2>Who Will Win This Fight?</h2>
-            <% }) %>
-          </select>
-          <input type="submit" name="villainSubmit">
-    </form>
-    <% team.forEach((hero) => { %>
-        <p> <%= hero.name %> </p>
-    <% }) %>
-
-    <div id="pointsBtn">
-        <form method="POST" action="/hero/villain/upvote/?_method=PUT">
-            <input type="submit" value="Hero Team!">
-            <%= team[0].heroPoints %>
-        </form>
-        <form method="PUT" action="/hero/villain/downvote">
-            <input id="villainBtn" type="submit" name="villainBtn" value="The Villain">
-            <%= villain[0].villainPoints %>
-        </form>
+    <div class="villain-head">
+        <h3> Who will be the threat that your Avengers Team will face?</h3>
+        <h4> Choose a super villain that a good match against your team! Do you think they can defeat your team?</h4>
     </div>
 
-
-
-    <h3> Who will be the threat that your Avengers Team will face?</h3>
-    <h4> Choose a super villain that a good match against your team! Do you think they can defeat your team?</h4>
-
-
-    <div id="villain-img">
+   
         <% villain.forEach((vill) => { %>
-            <h4> <%= vill.name %> </h3>
-            <img src="<%= vill.image %>.jpg">
-            <p> <%= vill.description %> </p>
-            <form method="POST" action="/fight">
-                <input hidden type="text" name="name" value="">                
-            </form>
+            <div class="villain-info">
+                <div class="villain-name">
+                    <p> <%= vill.name %> </p>
+                </div>
+                <div class="villain-img">
+                    <img src="<%= vill.image %>.jpg">
+                </div>
+                <div class="villain-desc">
+                    <p> <%= vill.description %> </p>
+                </div>
+            </div>
         <% }) %>
-    </div>
+   
 
-
-    <script>
-        // var button = document.getElementById("pointsBtn");
-
-        // button.addEventListener("click", points);
+    <div class="jumbotron">
+        <h1>Who Will Win This Fight?</h1>
+        <h3>Select a villain from the dropdown... choose wisely!</h3>
+        <form method="POST" action="/hero/fight">
+            <select name="villain" id="villain" class="form-control" required>
+                <% villain.forEach((vill) => { %>
+                    <option value="<%= vill.id %>"><%= vill.name %></option>
+                <% }) %>
+              </select>
+        </form>
         
-        // function points(e) {
-        //     e.preventDefault();
-        // }
+        <div class="yourteam">
+            <h3>This is your team!</h3>
+            <% team.forEach((hero) => { %>
+                <p> <%= hero.name %> </p>
+            <% }) %>
+        </div>
 
-    </script>
+        <h2>Which side is winning? Vote Now!</h2>
+
+        <div class="pointsBtn">
+            <form method="POST" action="/hero/villain/upvote/?_method=PUT">
+                <input type="submit" value="Hero Team!">
+                <%= team[0].heroPoints %>
+            </form>
+            <form method="POST" action="/hero/villain/downvote?_method=PUT">
+                <input id="villainBtn" type="submit" name="villainBtn" value="The Villain">
+                <input type="hidden" name="id" value=" <%= villain[0].id %> " >
+                <%= villain[0].villainPoints %>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

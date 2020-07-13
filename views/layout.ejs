@@ -19,6 +19,7 @@
             <nav class="navbar navbar-default">
                 <div class="nav-elements">
                     <!-- if someone is logged in, and they hit this a, it will run the get route -->
+
                     <% if (currentUser) { %>
                         <a href='/auth/logout'>Logout</a>
                         <a href='/profile'>Profile</a>
@@ -28,6 +29,11 @@
                         <a href="/auth/register">Register</a>
                         <a href="/auth/login">Login</a>
                     <% } %>
+                    <div class="brand">
+                        <a class="navbar-brand" href="/hero">
+                            <img alt="Brand" src="https://images6.alphacoders.com/441/441993.jpg">
+                        </a>
+                    </div>
                 </div>
             </nav>
         </header>

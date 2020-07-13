@@ -135,6 +135,17 @@ router.put('/villain/upvote', (req, res) => {
     })
 })
 
+router.put('/villain/downvote', (req, res) => {
+    db.villain.update(
+        {villainPoints: db.sequelize.literal('"villainPoints" + 1')},
+        {where: {
+            id: req.body.id
+        }}
+    ).then(function() {
+        res.redirect('/hero/villain')
+    })
+})
+
 // router.get('/newfight', (req, res) => {
 //     db.fight.findAll( {
 //     })
@@ -158,13 +169,6 @@ router.put('/villain/upvote', (req, res) => {
 //     //grab villainId
 //     //grab userId
 // })
-
-
-
-
-
-// router
-// if ()
 
 
 // export router
