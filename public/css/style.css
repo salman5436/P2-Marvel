@@ -116,15 +116,16 @@ body {
     
     
     
-    .team-img {
+    .team-hero {
         display: inline-flexbox;
         border: 2px solid black;
         height: auto;
         width: 500px;
         align-content: center;
+        margin-bottom: 10px;
     }
     
-    .team-img img {
+    .team-hero img {
         margin: 0 auto;
         height: 350px;
         width: 400px;

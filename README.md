@@ -61,3 +61,4 @@ As a User, I want to:
  - Having sitewide competitions with voting systems
  - Social media sharing of teams and battles
  - Truth be told, I stumbled a lot during this project. I ran into heavy roadblocks and I tried my best to implement the best methods to reach MVP. My P2 is far from perfect and I messed up in many different places but I have learned so much and I look forward to coming back to it and doing it justice (no pun intended... get it? superheroes)
+ - Adding more accessibility and mobile friendly viewing!
