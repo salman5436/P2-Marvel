@@ -86,7 +86,7 @@ body {
 
 
 
-.team-img {
+.team-hero {
     display: inline-flexbox;
     border: 2px solid black;
     height: auto;
@@ -94,7 +94,7 @@ body {
     align-content: center;
 }
 
-.team-img img {
+.team-hero img {
     margin: 0 auto;
     height: 350px;
     width: 400px;

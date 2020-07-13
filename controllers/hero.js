@@ -20,15 +20,6 @@ router.get('/', (req, res) => {
     res.render('hero/home')
 })
 
-// router.get('/wolverine', (req, res) => {
-//     var marvelUrl = `https://gateway.marvel.com:443/v1/public/characters?name=${req.params.name}&apikey=${API_KEY}`
-    
-//     axios.get(marvelUrl).then(function(apiResponse) {
-//         var heros = apiResponse.data;
-//         res.show('hero/show', {heros})
-//     })
-// })
-
 router.get('/show', (req, res) => {
     function hash(ts, pk, key) {
         console.log("HASH")
@@ -80,28 +71,6 @@ router.post('/team', (req, res) => {
       })
 })
 
-// router.get('/villain', (req, res) => {
-//     function hash(ts, pk, key) {
-//         console.log("HASH")
-//         return md5(ts+pk+key);
-//     }
-//     let TS = 1;
-//     let PK = process.env.HASH;
-//     let KEY = process.env.API_KEY;
-//     let hashed = hash(TS, PK, KEY);
-//     let villains = ["thanos", "ultron", "magneto", "apocalypse", "red skull", "dormammu", "galactus"];
-//     let results = {one: []};
-//     for (var i = 0; i < villains.length; i++) {
-//         let apiCall = `https://gateway.marvel.com:443/v1/public/characters?name=${i}&apikey=${KEY}&ts=${TS}&hash=${hashed}`
-//         axios.get(apiCall).then(function(apiResponse) {
-//             var villain = apiResponse.data;
-//             results.one.push(villain)
-//             res.render('hero/villain', {results: results})
-//         }).catch(function(error) {
-//         console.log(error)
-//     })
-//     }
-// })
 
 router.delete('/team/:id', (req, res) => {
     db.team.destroy({
@@ -135,39 +104,15 @@ router.put('/villain/upvote', (req, res) => {
     })
 })
 
-router.put('/villain/downvote', (req, res) => {
-    db.villain.update(
-        {villainPoints: db.sequelize.literal('"villainPoints" + 1')},
-        {where: {
-            id: req.body.id
-        }}
-    ).then(function() {
-        res.redirect('/hero/villain')
-    })
-})
-
-// router.get('/newfight', (req, res) => {
-//     db.fight.findAll( {
+// router.put('/villain/downvote', (req, res) => {
+//     db.villain.update(
+//         {villainPoints: db.sequelize.literal('"villainPoints" + 1')},
+//         {where: {
+//             id: req.body.id
+//         }}
+//     ).then(function() {
+//         res.redirect('/hero/villain')
 //     })
-//     .then(function(data) {
-//         console.log(data);
-//         res.render("hero/newfight", {data})
-//     })
-// })
-
-//form on the fight page
-// router.post('/fight', (req, res) => {
-//     db.fight.create({
-//         userId: req.user.id,
-//         villainId: req.body.villain,
-//     }).then(function(data) {
-//         res.redirect('/hero/newfight');
-//     }).catch(function(error) {
-//         console.log('💩💩💩💩💩💩💩💩💩💩');
-//         console.log(error);
-//     })
-//     //grab villainId
-//     //grab userId
 // })
 
 
