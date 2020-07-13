@@ -1,148 +1,178 @@
 body {
-    background-color: rgba(223, 20, 24, 0.632); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.nav-elements a {
-    padding-left: 15px;
-    margin: 0 auto;
-}
-
-.brand {
-    align-self: center;
-}
-
-.navbar-brand img {
-    width: 70px;
-    height: auto;
-}
-
-.home {
-    margin: 0 auto;
-    text-align: center;
-}
-
-.home-head {
-    padding-bottom: 30px;
-}
-
-.search-form {
-    margin-top: 15px;
-    padding-top: 15px;
-    padding-bottom: 20px;
-}
-
-#splash-btm-img img{
-    padding-top: 35px;
-    height: 400px;
-    width: auto;
-}
-
-
-
-
-
-.hero-info {
-    padding-top: 30px;
-}
-
-.hero-name {
-    font-size: 20px;
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap
-}
-
-.hero-img {
-    text-align: center;
-    margin-bottom: 10px
-}
-
-.hero-img img{
-    border: 3px solid black;
-    height: 500px;
-    width: auto;
-}
-
-.hero-desc {
-    padding: 5px;
-    border: 2px solid black;
-    justify-content: center;
-    text-align: center;
-    height: auto;
-    width: 750px;
-    margin: 0 auto
-}
-
-.team-form {
-    margin-top: 20px;
-    font-size: 25px;
-    font-weight: 600;
-}
-
-
-
-
-
-.team-hero {
-    display: inline-flexbox;
-    border: 2px solid black;
-    height: auto;
-    width: 500px;
-    align-content: center;
-}
-
-.team-hero img {
-    margin: 0 auto;
-    height: 350px;
-    width: 400px;
-}
-
-.upload {
-    margin-top: 20px;
-    font-size: 17px
-}
-
-.fight {
-    margin-top: 20px;
-    font-size: 20px;
-    font-weight: 500;
-    text-align: center;
-}
-
-
-
-
-
-.villain-head {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.villain-info {
-    display: flexbox;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.villain-name {
-    font-size: 30px;
-    font-weight: 600;
-}
-
-.villain-img img {
-    border: 3px solid black;
-    height: 600px;
-    width: auto;
-}
-
-.villain-desc {
-    font-size: 17px;
-}
-
-.yourteam {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
+    /*     background-color: rgba(223, 20, 24, 0.632);  */ 
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url(https://i.imgur.com/VUxOxT4.gif);
+        color: #fff
+    }
+    
+    /* .nav-elements a {
+        padding-left: 15px;
+        margin: 0 auto;
+    } */
+    
+    
+    
+    input {
+     color: #000 !important;
+    }
+    
+    p {
+        padding-top: 10px;
+    }
+    
+    .jumbotron {
+        color: #000;
+    }
+    
+    
+    
+    .brand img{
+        align-self: center;
+    }
+    
+    .navbar-brand {
+      transform: translateX(-50%);
+      left: 50%;
+      position: absolute;
+      margin-top: -30px;
+    }
+    
+    
+    
+    
+    .navbar-brand img {
+        width: 70px;
+        height: auto;
+    }
+    
+    .home {
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .home-head {
+        padding-bottom: 30px;
+    }
+    
+    .search-form {
+        margin-top: 15px;
+        padding-top: 15px;
+        padding-bottom: 20px;
+    }
+    
+    #splash-btm-img img{
+        padding-top: 35px;
+        height: 400px;
+        width: auto;
+        margin-bottom: 50px;
+    
+    }
+    
+    
+    
+    
+    
+    .hero-info {
+        padding-top: 30px;
+    }
+    
+    .hero-name {
+        font-size: 20px;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap
+    }
+    
+    .hero-img {
+        text-align: center;
+        margin-bottom: 10px
+    }
+    
+    .hero-img img{
+        border: 3px solid black;
+        height: 500px;
+        width: auto;
+    }
+    
+    .hero-desc {
+        padding: 5px;
+        border: 2px solid black;
+        justify-content: center;
+        text-align: center;
+        height: auto;
+        width: 750px;
+        margin: 0 auto
+    }
+    
+    .team-form {
+        margin-top: 20px;
+        font-size: 25px;
+        font-weight: 600;
+    }
+    
+    
+    
+    
+    
+    .team-img {
+        display: inline-flexbox;
+        border: 2px solid black;
+        height: auto;
+        width: 500px;
+        align-content: center;
+    }
+    
+    .team-img img {
+        margin: 0 auto;
+        height: 350px;
+        width: 400px;
+    }
+    
+    .upload {
+        margin-top: 20px;
+        font-size: 17px
+    }
+    
+    .fight {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+    }
+    
+    
+    
+    
+    
+    .villain-head {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .villain-info {
+        display: flexbox;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    
+    .villain-name {
+        font-size: 30px;
+        font-weight: 600;
+    }
+    
+    .villain-img img {
+        border: 3px solid black;
+        height: 600px;
+        width: auto;
+    }
+    
+    .villain-desc {
+        font-size: 17px;
+    }
+    
+    .yourteam {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
