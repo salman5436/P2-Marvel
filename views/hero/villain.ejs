@@ -21,17 +21,13 @@
     <% }) %>
 
     <div id="pointsBtn">
-        <form method="PUT" action="hero/villain/upvote">
+        <form method="POST" action="/hero/villain/upvote/?_method=PUT">
             <input type="submit" value="Hero Team!">
-            <% team.forEach((hero) => { %>
-                <%= hero.heroPoints %>
-            <% }) %> 
+            <%= team[0].heroPoints %>
         </form>
-        <form method="PUT" action="hero/villain/downvote">
+        <form method="PUT" action="/hero/villain/downvote">
             <input id="villainBtn" type="submit" name="villainBtn" value="The Villain">
-            <% villain.forEach((vill) => { %>
-                <%= vill.villainPoints %>
-            <% }) %>
+            <%= villain[0].villainPoints %>
         </form>
     </div>
 

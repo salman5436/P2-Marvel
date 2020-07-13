@@ -1,0 +1,13 @@
+.nav-elements a {
+    padding-left: 15px;
+    margin: 0 auto;
+}
+
+.home {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home-head {
+    padding-bottom: 30px;
+}

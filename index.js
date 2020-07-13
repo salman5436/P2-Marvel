@@ -19,7 +19,7 @@ const isLoggedIn = require('./middleware/isLoggedIn')
 //session library that can store session data - its a class
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // NOTE: Flash messages weren't working because we didn't connect Flash so the alerts were undefined
-
+ 
 
 
 

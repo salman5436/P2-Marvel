@@ -8,12 +8,12 @@ const db = require('../models');
 const axios = require('axios');
 const flash = require('connect-flash');
 const session = require('express-session');
-var methodOverride = require('method-override')
-
-
+const methodOverride = require('method-override')
 
 var md5 = require('md5');
 
+
+router.use(methodOverride('_method'));
 
 
 router.get('/', (req, res) => {
@@ -103,13 +103,13 @@ router.post('/team', (req, res) => {
 //     }
 // })
 
-router.delete('/team/remove', (req, res) => {
+router.delete('/team/:id', (req, res) => {
     db.team.destroy({
         where: {
-            name: req.body.name
+            id: req.params.id
         }
     }).then(function() {
-        res.redirect('/team')
+        res.redirect('/hero')
     })
 })
 
@@ -125,7 +125,14 @@ router.get("/villain", (req, res) => {
 
 //create 2 put routes for DOM buttons
 router.put('/villain/upvote', (req, res) => {
-
+    db.team.update(
+        {heroPoints: db.sequelize.literal('"heroPoints" + 1')},
+        {where: {
+            userId: req.user.id
+        }}
+    ).then(function() {
+        res.redirect('/hero/villain')
+    })
 })
 
 // router.get('/newfight', (req, res) => {

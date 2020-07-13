@@ -8,9 +8,8 @@
         <img src="<%= hero.image %>.jpg">
         <p> <%= hero.description %> </p>
        
-        <form method="POST" action="/hero/team/remove/?_method=DELETE">
+        <form method="POST" action="/hero/team/<%= hero.id %>/?_method=DELETE">
             <p>Click here to remove from team!</p>
-            <input type="hidden" name="name" value=" <%= hero.name %>">
             <input type="submit" value="Remove">
         </form>
     <% }) %>
